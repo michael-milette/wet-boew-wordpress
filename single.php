@@ -4,7 +4,7 @@
 	<h1 id="wb-cont" property="name"><?php the_title(); ?></h1>
 	
 	<?php if ( is_author() ) ?>
-		<p class="pull-right wp-wb-author"><span class="glyphicon glyphicon-pencil"></span> <?php edit_post_link( __("Modifier", "wet-boew") ); ?></p>
+		<p class="pull-right wp-wb-author"><span class="glyphicon glyphicon-pencil"></span> <?php edit_post_link( __("Edit", "wet-boew") ); ?></p>
 	<?php endif; ?>
 	
 	<aside>
@@ -15,11 +15,11 @@
 		echo ("<em>"); 
 		
 		comments_popup_link(
-			__("Aucuns commentaires", "wet-boew" ), 
-			__("1 commentaire", "wet-boew" ), 
-			__("% commentaires", "wet-boew" ), 
-			'comments-link', 
-			__("Les commentaires sont fermés.", "wet-boew" )
+            __("No comments", "wet-boew" ), 
+            __("1 comment", "wet-boew" ), 
+            __("% comments", "wet-boew" ), 
+            'comments-link', 
+            __("Comments are closed.", "wet-boew" )
 		);
 
 		echo ("</em>"); 
@@ -44,9 +44,9 @@
 	
 	<div class="clearfix"></div>
 	<dl id="wb-dtmd" class="pull-right" role="contentinfo" property="dateModified">
-		<dt><?php _e( "Publié le :", "wet-boew" ); ?></dt> 
+		<dt><?php _e( "Published on:", "wet-boew" ); ?></dt> 
 		 <dd>
-		   <time><?php the_time('Y-m-d') ?></time>
+		   <time><?php the_time(get_option('date_format')) ?></time>
 		 </dd>
 	</dl>
 
@@ -54,7 +54,7 @@
 	<?php comments_template(); ?>
 	
 	<nav>
-		<h2 class="h3"><?php _e("Voir aussi:", "wet-boew") ?></h2>
+		<h2 class="h3"><?php _e("Also see:", "wet-boew") ?></h2>
 <?php
 	$prev_post = get_previous_post();
 	$notEmpty_prev_post = !empty( $prev_post );
@@ -62,19 +62,19 @@
 	$notEmpty_next_post = !empty( $next_post );
 
 	if ( $notEmpty_prev_post || $notEmpty_next_post ) {
-		echo( "<ul>" );
+		echo "<ul>";
 		
 		if ( $notEmpty_prev_post ) {
-			echo( '<li><a href="' . get_permalink( $prev_post->ID ) . '">' . $prev_post->post_title . '</a></li>' );
+			echo '<li><a href="' . get_permalink( $prev_post->ID ) . '">' . __($prev_post->post_title) . '</a></li>';
 		}
 
 		if ( $notEmpty_next_post ){
-			echo( '<li><a href="' . get_permalink( $next_post->ID ) . '">' . $next_post->post_title . '</a></li>' );
+			echo '<li><a href="' . get_permalink( $next_post->ID ) . '">' . __($next_post->post_title) . '</a></li>' ;
 		}
-		echo( "</ul>" );
+		echo "</ul>";
 		
 	} else {
-		_e("Il n'y a pas d'article précédent ni suivant dans cette catégorie", "wet-boew");
+		_e("There are no other articles in this category", "wet-boew");
 	}
 ?>
 	</nav>

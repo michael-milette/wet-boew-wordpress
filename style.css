@@ -8,3 +8,15 @@
 * Text Domain: wet-boew
 * Domain Path: /languages
 */
+#wb-lng li.active {
+    display:none;
+}
+
+#sidebar ul li:first-child h2 {
+    margin-top:0;
+}
+.language-chooser {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+}

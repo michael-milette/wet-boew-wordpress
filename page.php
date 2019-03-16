@@ -7,15 +7,15 @@
 			
 			<?php the_content(); ?>
 
-			<?php wp_link_pages(array('before' => __("<p><strong>Pages:</strong>"), 'after' => '</p>', 'next_or_number' => 'number')); ?>
+			<?php wp_link_pages(array('before' => '<p><strong>' . __( "Pages:" ) . '</strong>', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 			
 	<?php endwhile; endif; ?>
 
 	<div class="clearfix"></div>
 	<dl id="wb-dtmd" class="pull-right" role="contentinfo" property="dateModified">
-		<dt><?php _e( "Modifier le :", "wet-boew" ); ?></dt> 
+		<dt><?php _e( "Modified on:", "wet-boew" ); ?></dt> 
 		 <dd>
-		   <time><?php the_time('Y-m-d') ?></time>
+		   <time><?php the_time(get_option('date_format')) ?></time>
 		 </dd>
 	</dl>
 </main>

@@ -18,10 +18,10 @@ if (have_posts()) : the_post();
 ?>
 	<article id="<?php the_ID(); ?>">
 		<header>
-			<h1 id="wb-cont" property="name"><?php the_title(); ?> <!--<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e("Lien permanent pour", "wet-boew"); ?> <?php the_title_attribute(); ?>"></a> --></h1>
+			<h1 id="wb-cont" property="name"><?php the_title(); ?> <!--<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e("Permalink for", "wet-boew"); ?> <?php the_title_attribute(); ?>"></a> --></h1>
 
 			<?php if ( is_author() ) ?>
-				<p class="pull-right wp-wb-author"><span class="glyphicon glyphicon-pencil"></span> <?php edit_post_link( __("Modifier", "wet-boew") ); ?></p>
+				<p class="pull-right wp-wb-author"><span class="glyphicon glyphicon-pencil"></span> <?php edit_post_link( __("Edit", "wet-boew") ); ?></p>
 			<?php endif; ?>
 		</header>
 		
@@ -29,22 +29,22 @@ if (have_posts()) : the_post();
 			<p><?php the_category( ', ' ); ?><?php the_tags( ' - (', ', ', ')' ); ?></p>
 		</aside>
 		
-		<?php the_content( __( "Lire cet article", "wet-boew" ) ); ?>
+		<?php the_content( __( "Read this article", "wet-boew" ) ); ?>
 <!--
 		<aside>
-			<h2><?php _e( "Commentaires", "wet-boew" ); ?></h2>
+			<h2><?php _e( "Comments", "wet-boew" ); ?></h2>
 			<p><?php comments_popup_link(
-				__("Aucuns commentaires"), 
-				__("1 commentaire"), 
-				__("% commentaires"), 
+				__("No comments"), 
+				__("1 comment"), 
+				__("% comments"), 
 				'comments-link', 
-				__("Les commentaires sont fermés.")); ?></p>
+				__("Comments are closed.")); ?></p>
 		<aside>
 -->		
 		<dl id="wb-dtmd" class="pull-right" role="contentinfo" property="dateModified">
-			<dt><?php _e( "Publié le :", "wet-boew" ); ?></dt> 
+			<dt><?php _e( "Published on:", "wet-boew" ); ?></dt> 
 			 <dd>
-			   <time><?php the_time('Y-m-d') ?></time>
+			   <time><?php the_time(get_option('date_format')) ?></time>
 			 </dd>
 		</dl>
 		
